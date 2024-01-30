@@ -1,21 +1,25 @@
+from decimal import Decimal
+
 
 def leerHorasMinSeg():
 
-    h = int(input("Introduce las horas: "))
-    m = int(input("Introduce los minutos: "))
-    s = int(input("Introduce los segundos: "))
+    r = 149, 30, 49
 
-    return f"{h} hora/s", f" {m} minuto/s", f" {s} segundo/s"
+    return r
 
 
 def segundos(h, m, s):
 
-    return f"{h * 3600} + {m * 60} + {s}  segundo/s"
+    s += (h * 3600) + (m * 60)
+
+    return s
 
 
-def importeLlamada(tiempo, coste):
+def importeLlamada(tiempo):
 
-    return f"{tiempo * coste}  € costará la llamada"
+    coste = Decimal(input("Introduce el coste: "))
+
+    return f"{tiempo * coste} € costará la llamada"
 
 
 def horas(segundos):
@@ -27,7 +31,3 @@ def horas(segundos):
     s = segundos
 
     return f"{h}, hora/s, {m}, minuto/s, {s}, segundo/s"
-
-print(segundos())
-print(importeLlamada())
-print(horas())
