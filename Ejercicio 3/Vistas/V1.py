@@ -1,15 +1,27 @@
-import sys
-from gui. import Aplicacion_Gui
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QLineEdit, QGroupBox, QGridLayout
+from PyQt5.QtCore import QObject, pyqtSignal
+from PyQt5.QtWidgets import QPushButton
+from PyQt5.QtCore import Qt
 
 
-class App(QApplication):
-    def __init__(self, sys_argv):
-        super(App, self).__init__(sys_argv)
-        self.gui = Aplicacion_Gui()
+class ventanaTuplas(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        # Set up window properties
+        self.title = 'Mi aplicación'
+        self.left = 80
+        self.top = 80
+        self.width = 300
+        self.height = 320
+
+        self.inicializar_GUI()
+
+    def inicializar_GUI(self):
+        # inicializamos la ventana
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
 
 
-if __name__ == '__main__':
-    app = App(sys.argv)
-    sys.exit(app.exec_())
-    sys.exit(app.exec_())
+
+        self.show()

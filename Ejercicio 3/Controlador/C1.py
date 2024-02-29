@@ -1,22 +1,15 @@
 import sys
-# from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QLabel, QPushButton, QHBoxLayout
+from PyQt5.QtWidgets import QWidget
+from Vistas.V1 import ventanaTuplas
+from PyQt5.QtWidgets import QApplication
 
-#el controlador debe conocer el modelo
-import Vistas.V1
 
-class ControladorHolaMundo():
-    # Método constructor de la clase
-    def __init__(self,Ventana):
-        self.saludo=Saludo
-        self.ventana=Ventana
-    def handler_saludar(self):
-        if self.saludo.saludar=="Hola mundo" :
-            # Actualizar modelo Saludo
-            self.saludo.saludar = "Adiossss"
+class App(QApplication):
+    def __init__(self, sys_argv):
+        super(App, self).__init__(sys_argv)
+        self.gui = ventanaTuplas()
 
-        else:
-            # Actualizar modelo
-            self.saludo.saludar = "Hola mundo"
 
-        # Actualizar ventana
-        self.ventana.label.setText(self.saludo.saludar)
+if __name__ == '__main__':
+    app = App(sys.argv)
+    sys.exit(app.exec_())
